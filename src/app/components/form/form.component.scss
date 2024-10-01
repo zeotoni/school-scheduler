@@ -1,0 +1,17 @@
+fieldset {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  label {
+    padding: 8px 0;
+  }
+
+  input {
+    height: 2rem;
+  }
+}
+
+button {
+  margin-top: 1rem;
+}

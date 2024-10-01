@@ -1,0 +1,67 @@
+<form (submit)="onSubmit()">
+  <fieldset>
+    <legend>Cadastro de Turmas</legend>
+    <label for="className">Coloque o nome das turmas:</label>
+    <input
+      type="text"
+      id="className"
+      [(ngModel)]="className"
+      name="className"
+      placeholder="Sexto ano"
+      required />
+
+    <button type="button" (click)="addClassName()" aria-label="Adicionar turma">
+      Adicionar
+    </button>
+
+    <ul aria-live="polite">
+      <li *ngFor="let className of classNameList">
+        {{ className.name }}
+        <button
+          (click)="removeClass(className)"
+          attr.aria-label="Remover {{ className.name }}">
+          Remover
+        </button>
+      </li>
+    </ul>
+  </fieldset>
+
+  <fieldset>
+    <legend>Cadastro de Matérias</legend>
+    <label for="subject">Nome da matéria:</label>
+    <input
+      type="text"
+      id="subject"
+      [(ngModel)]="subject"
+      name="subject"
+      placeholder="Matemática"
+      required />
+
+    <label for="weeklyHours">Quantidade de aulas semanais:</label>
+    <input
+      type="number"
+      min="1"
+      id="weeklyHours"
+      [(ngModel)]="weeklyHours"
+      name="weeklyHours"
+      required />
+
+    <button type="button" (click)="addSubject()">Adicionar</button>
+
+    <ul aria-live="polite">
+      <li *ngFor="let subject of subjectList">
+        {{ subject.name }} - {{ subject.weeklyHours }} aulas semanais
+        <button
+          (click)="removeSubject(subject)"
+          attr.aria-label="Remover {{ subject.name }}">
+          Remover
+        </button>
+      </li>
+    </ul>
+  </fieldset>
+
+  <div class="cta">
+    <button type="submit">Gerar Horário</button>
+    <button type="reset">Limpar formulário</button>
+  </div>
+</form>
