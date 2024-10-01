@@ -1,0 +1,5 @@
+{
+  "src/**/*.{js,ts}": ["pnpm run lint:fix", "pnpm run prettier"],
+  "src/**/*.html": ["pnpm run prettier"],
+  "src/**/*.scss": ["pnpm run lint:fix:scss"]
+}
