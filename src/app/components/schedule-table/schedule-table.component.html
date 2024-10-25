@@ -1,0 +1,28 @@
+<div *ngFor="let schedule of scheduleList; let i = index">
+  <table>
+    <caption>
+      {{
+        'Horário Escolar - ' + classNameList[i]?.name
+      }}
+    </caption>
+
+    <thead>
+      <tr>
+        <th>Segunda</th>
+        <th>Terça</th>
+        <th>Quarta</th>
+        <th>Quinta</th>
+        <th>Sexta</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let j of [0, 1, 2, 3, 4]">
+        <td
+          *ngFor="let dia of ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta']">
+          {{ schedule[dia][j] || '' }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
